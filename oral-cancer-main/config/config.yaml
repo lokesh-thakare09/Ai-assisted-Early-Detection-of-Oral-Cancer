@@ -1,0 +1,33 @@
+# Application Configuration
+app:
+  title: "Oral Cancer Detection AI"
+  description: "AI-powered oral cancer screening and risk assessment"
+  version: "1.0.0"
+
+# Model Configuration
+model:
+  # Local path for the downloaded model
+  path: "models/oral_cancer_model.pth"
+  input_size: [224, 224]
+  classes:
+    - "Non-cancer"
+    - "Oral Cancer"
+  # How the model's softmax outputs are ordered. Use 'cancer_first' if
+  # the model returns [cancer, normal], or 'normal_first' if it returns
+  # [normal, cancer]. If you see reversed labels, flip this value.
+  output_order: "cancer_first"
+
+# LLM Configuration
+llm:
+  provider: "cohere"
+  model: "command-r-08-2024"
+  temperature: 0.25
+  max_tokens: 150
+  # Enable/disable LLM analysis (set false to skip LLM and use fallback)
+  enabled: true
+
+# UI Configuration
+ui:
+  theme: "dark"
+  sidebar_width: 300
+  max_upload_size_mb: 10
